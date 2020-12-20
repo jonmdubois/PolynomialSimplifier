@@ -242,7 +242,7 @@ struct term * parseTerm(string strTerm, bool isPositive) {
         }
     }
 
-    if (!isPositive) {
+    if (newTerm != NULL && !isPositive) {
         newTerm->coeficient = newTerm->coeficient * -1;
     }
 
@@ -336,7 +336,7 @@ bool parsePoly(string strPoly) {
             }
             else {
                 valid = true;
-                //simplify**********************************************
+                //simplify
                 for (int i = 0; i < newPoly->temrs.size(); i++) {
                     struct term* tempTerm = newPoly->temrs[i];
                     if (tempTerm->vars.size() == 0 && newTerm->vars.size() == 0) {
